@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Site2Controller;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
@@ -84,7 +85,12 @@ Route::prefix('site1')->controller(SiteController::class)
     Route::get('/contact' ,  'contact')->name('contact');
 });
 
-
+Route::prefix('site2')->group(function(){
+     Route::get('/' , [Site2Controller::class , 'index'] )->name('index');
+     Route::get('about' , [Site2Controller::class , 'about'])->name('about');
+     Route::post('post_msg' , [Site2Controller::class , 'post_msg'])->name('post_msg');
+     Route::get('/view' , [Site2Controller::class , 'view'] )->name('view');
+});
 
 
 
