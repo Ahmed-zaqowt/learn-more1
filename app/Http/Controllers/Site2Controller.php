@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class Site2Controller extends Controller
 {
@@ -26,4 +27,7 @@ class Site2Controller extends Controller
    function view() {
     return view('site2.req') ;
    }
+
+
+
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\form1Controller;
 use App\Http\Controllers\Site2Controller;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
@@ -91,6 +92,13 @@ Route::prefix('site2')->group(function(){
      Route::post('post_msg' , [Site2Controller::class , 'post_msg'])->name('post_msg');
      Route::get('/view' , [Site2Controller::class , 'view'] )->name('view');
 });
+
+
+Route::get('form1' , [form1Controller::class , 'index'])->name('index');
+Route::post('form1Submit' , [form1Controller::class , 'form1Submit'])->name('form1Submit');
+
+Route::get('form2' , [form1Controller::class , 'form2'])->name('form2');
+Route::post('form2Submit' , [form1Controller::class , 'form2Submit'])->name('form2Submit');
 
 
 
