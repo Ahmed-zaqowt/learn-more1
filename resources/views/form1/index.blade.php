@@ -51,19 +51,13 @@
         @enderror
       </div>
       <div class="mb-3">
-        <label>City</label>
-        <select name="city" class="form-control @error('city') is-invalid @enderror" >
-            <option selected disabled>Select City</option>
-            <option>test 1</option>
-            <option>test 2</option>
-            <option>test 4</option>
-            <option>test 5</option>
-            <option>test 6</option>
-        </select>
-        @error('city')
+        <label>Password</label>
+        <input type="password" name="password" class="form-control @error('paassword') is-invalid @enderror" placeholder="User Name">
+        @error('password')
         <small class="invalid-feedback">{{ $message }}</small>
         @enderror
-    </div>
+      </div>
+
 
          <div class="mb-3">
             <button type="submit" class="btn btn-success btn-lg w-100">Submit</button>

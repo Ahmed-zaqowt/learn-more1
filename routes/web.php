@@ -71,7 +71,7 @@ Route::get('index' , function(){
 
 
 Route::get('/' , function () {
-   return view('index') ;
+   return view('welcome') ;
 });
 
 Route::get('home' , function(){
@@ -99,7 +99,6 @@ Route::post('form1Submit' , [form1Controller::class , 'form1Submit'])->name('for
 
 Route::get('form2' , [form1Controller::class , 'form2'])->name('form2');
 Route::post('form2Submit' , [form1Controller::class , 'form2Submit'])->name('form2Submit');
-
 
 
 

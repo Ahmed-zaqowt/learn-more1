@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class form1Controller extends Controller
 {
@@ -14,9 +18,30 @@ class form1Controller extends Controller
              $request->validate([
                 'name' => 'required|string|min:3|max:20',
                 'email' => 'required|email',
-                'age' => 'required|integer|digits_between:15,80',
-                'city' => 'required',
+                'age' => 'required',
+                'password' => 'required'
              ]);
+
+           //  DB::statement('INSERT INTO (A , B , G) VALUES (? , ? ) ');
+
+          /* DB::insert('courses' ,
+           [
+
+           ]);*/
+
+          /* Category::create([
+            'name' => $request->name ,
+           ]);*/
+
+           User::create([
+            'name' => $request->name ,
+            'age' => $request->age ,
+            'email' => $request->email ,
+            'password' => Hash::make($request->password) ,
+           ]);
+
+           return redirect()->back() ;
+
      }
 
 
@@ -30,9 +55,12 @@ class form1Controller extends Controller
         /* $ex = 'form1_' . time() .  '_' . rand() . '.' . $request->file('image')->getClientOriginalExtension();
          $request->file('image')->move(public_path('uploads') , $ex);*/
 
-         foreach($request->file('album') as $i){
+        /* foreach($request->file('album') as $i){
             $ex = 'form1_' . time() .  '_' . rand() . '.' . $i->getClientOriginalExtension();
             $i->move(public_path('uploads') , $ex);
-         }
+         }*/
      }
+
+
+
 }
