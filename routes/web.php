@@ -22,8 +22,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
-/*
 
+/*
 Route::get('users' , function(){
     return 'users' ;
 });
@@ -63,8 +63,8 @@ Route::get('about' , function(){
 
 Route::get('index' , function(){
     return view('index');
-});*/
-
+});
+*/
 
 
 
@@ -106,18 +106,30 @@ Route::post('form2Submit' , [form1Controller::class , 'form2Submit'])->name('for
 Route::prefix('site3')->name('site3.')->group(function(){
 
 
-    Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function(){
+   /* Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function(){
          Route::get('/' , 'index')->name('index')  ;
-    });
+    });*/
     // site3.sub_category.index
     Route::prefix('sub_category')->name('sub_category.')->controller(SubCategoryController::class)->group(function(){
         Route::get('/{id}' , 'index')->name('index')  ;
    });
 });
 
+/*
+Route::get('/category' , [CategoryController::class , 'index'])->name('category.index');
+Route::get('/category/create' , [CategoryController::class , 'create'])->name('category.create');
+Route::post('/category' , [CategoryController::class , 'store'])->name('category.store');
+
+Route::get('/category/{id}/edit' , [CategoryController::class , 'edit'])->name('category.edit');
+
+Route::get('/category/{id}' , [CategoryController::class , 'show'])->name('category.show');
 
 
+Route::put('/category/{id}' , [CategoryController::class , 'update'])->name('category.update');
 
+Route::delete('/category/{id}' , [CategoryController::class , 'destroy'])->name('category.destroy');*/
+
+Route::resource('category' , CategoryController::class) ;
 
 
 
